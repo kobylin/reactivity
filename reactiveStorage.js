@@ -47,8 +47,12 @@ ReactiveStorage.prototype = {
         this.storage[name] = value;
         //2. call all listeners linked with this value
         if (this.listeners[name]) {
+            var calledListeners = [];
             this.listeners[name].forEach(function(listener) {
-                listener.call();
+                if (calledListeners.indexOf(listener) === -1) {
+                    listener.call();
+                    calledListeners.push(listener);
+                }
             });
         }
     }

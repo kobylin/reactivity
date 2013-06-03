@@ -1,17 +1,19 @@
 var reactiveStorage = new ReactiveStorage();
 
 autorun(function() {
-    console.log('First', reactiveStorage.get('username'));
-    console.log('Second', reactiveStorage.get('userid'));
+    console.log('First username', reactiveStorage.get('username'));
+    console.log('First userid', reactiveStorage.get('userid'));
 });
 
 autorun(function() {
-    console.log('Second', reactiveStorage.get('username'));
+    console.log('Second username', reactiveStorage.get('username'));
 });
 
 reactiveStorage.set('username', 'Ivan');
 
-//make ajax example
-//
 //if will be time make reactive .find(function(){smth_reactive})
 
+//add many other cases
+//1. dom elements
+//2. ajax
+//3. more complexity
