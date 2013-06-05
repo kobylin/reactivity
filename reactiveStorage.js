@@ -57,3 +57,14 @@ ReactiveStorage.prototype = {
         }
     }
 };
+
+function template(elementId, data) {
+    var rendered = $(elementId).html();
+    _.each(data, function(value, name) {
+        rendered = rendered.replace('{' + name + '}', value);
+    });
+
+    return rendered;
+}
+
+reactiveStorage = new ReactiveStorage();
